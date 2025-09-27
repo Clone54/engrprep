@@ -196,7 +196,6 @@ export const generateQuestions = async (options: ExamOptions, questionCount: num
             const response = await ai.models.generateContent({
                 model: 'gemini-2.5-flash',
                 contents: prompt,
-                safetySettings,
             });
             return parseAIResponse(response, questionCount);
 
