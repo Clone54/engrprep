@@ -2,9 +2,10 @@
 import { GoogleGenAI, GenerateContentResponse, HarmCategory, HarmBlockThreshold } from '@google/genai';
 import { ExamOptions, Question, Language, Subject, Difficulty } from '../types';
 import { EXAM_TOPICS } from '../constants';
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // Initialize the GoogleGenAI client with the API key from environment variables.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY! });
+const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY!);
 
 const getPrompt = (options: ExamOptions, questionCount: number): string => {
     const { subject, difficulty, language, topic } = options;
